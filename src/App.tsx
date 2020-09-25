@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {AuthService} from './api/AuthService';
+import { BrowserRouter as Router,Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount() {
+   //  const { location: { search } } = this.props as any;
+    // const {code} = useParams();
+    // console.log(() => useParams())
+    console.log((this.props as any));
+   // const { code, state } = useParams();
+    // console.log(code, state);
+    // if (code && state) {
+    //   AuthService.requestToken({ code, state })
+    //     .then((result) => console.log(result.data));
+    // }
+  }
+
+  login () {
+    console.log('hekk');
+    AuthService.login()
+        .then((url) => (window.location.href = url.data));
+  }
+
+  render() {
+      return (
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <div className="App">
+                  hello
+                  <button onClick={ this.login }>Login</button>
+                </div>
+              </Route>
+            </Switch>
+          </Router>
+      );
+  }
 }
 
 export default App;
