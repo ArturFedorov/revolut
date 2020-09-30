@@ -1,0 +1,27 @@
+.pocket {
+  display: flex;
+  flex-direction: column;
+  width: 345px;
+  height: 385px;
+  background: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #F3F4F5;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  padding: $building-unit-x2 $building-unit-x3;
+
+  &-content {
+    background-color: $white;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: $building-unit-x10;
+    border-radius: $border-radius;
+  }
+}

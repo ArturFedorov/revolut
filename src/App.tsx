@@ -1,13 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.scss';
+import Header from './components/root/header/Header';
+import PocketList from './components/pockets/PocketList';
 
 class App extends React.Component {
-
-
   render() {
-      return (
-        <div>Hello</div>
-      );
+    return (
+      <div className={'app'}>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <PocketList />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
   }
 }
 

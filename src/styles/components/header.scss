@@ -1,0 +1,12 @@
+$header-height: 60px;
+
+.header {
+  display: flex;
+  background-color: $white;
+  align-items: center;
+  height: $header-height;
+
+  &-logo {
+    height: 30px;
+  }
+}

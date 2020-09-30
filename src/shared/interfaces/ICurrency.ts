@@ -1,4 +1,4 @@
-export interface ITokenParameters {
+export interface ICurrency {
     code: string;
     state: string;
 }
