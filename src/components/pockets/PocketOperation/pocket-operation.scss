@@ -1,0 +1,36 @@
+// operation
+.pocket-operation {
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child) {
+    margin-bottom: $building-unit-x2;
+  }
+
+  &-round {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: $building-unit;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &-balance {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-child {
+      margin-bottom: 2px;
+    }
+  }
+}

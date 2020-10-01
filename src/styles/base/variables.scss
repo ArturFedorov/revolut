@@ -2,6 +2,9 @@
 
 // primary
 $white: #FFFFFF;
+$gray: #A6A6A6;
+$blue: #0666EB;
+$blue-dark: #0042b7;
 
 
 // Building Units
@@ -29,7 +32,7 @@ $line-height-h5: 16px;
 $line-height-regular: 24px;
 $line-height-small: 20px;
 $line-height-small-bold: 20px;
-$line-height-caption: 16px;
+$line-height-caption: 10px;
 
 
 $font-family: 'Averta';
@@ -37,11 +40,11 @@ $font_path: '/fonts/';
 
 // font-size
 $font-size-h1: 36px;
-$font-size-h2: 24px;
+$font-size-h2: 28px;
 $font-size-h3: 20px;
 $font-size-h4: 18px;
 $font-size-h5: 14px;
-$font-size-regular: 16px;
+$font-size-regular: 14px;
 $font-size-small: 14px;
 $font-size-small-bold: 14px;
 $font-size-caption: 12px;
@@ -56,3 +59,4 @@ $font-ultra: 900;
 
 $box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 $border-radius: $building-unit;
+$default-transition: all .5s;

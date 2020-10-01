@@ -1,0 +1,53 @@
+.pocket {
+  display: flex;
+  flex-direction: column;
+  width: 345px;
+  height: 410px;
+  background: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #F3F4F5;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  padding: $building-unit-x2 $building-unit-x3 $building-unit-x3 $building-unit-x3;
+
+  &-buttons {
+    margin: $building-unit-x2 0 $building-unit-x3 0;
+  }
+
+  &-button {
+    margin-right: $building-unit;
+  }
+
+  &-content {
+    background-color: $white;
+    border-radius: $building-unit;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: $building-unit-x2;
+    overflow: auto;
+  }
+
+  &-devider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 10px;
+    background: linear-gradient(89.59deg, #CED5DB 2.29%, rgba(255, 255, 255, 0.1) 103.66%), #CED5DB;
+    border-radius: $border-radius/2;
+  }
+
+  &-header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+}

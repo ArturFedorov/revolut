@@ -40,8 +40,16 @@ p {
     }
   }
 
+  &.is-secondary {
+    color: $gray;
+  }
+
   &.is-caption {
     @include font-face($font-regular, $font-size-caption, $line-height-caption);
+  }
+
+  &.is-blue {
+    color: $blue;
   }
 }
 
