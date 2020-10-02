@@ -11,10 +11,10 @@ const Button = (props: IButtonProps) => {
     <a className={`button ${props.className}`}>
       {
         props.iconName ?
-        (<img className={'button-icon'} src={require(`../../../assets/icons/${props.iconName}.svg`)}/>)
+        (<img className='button-icon' src={require(`../../../assets/icons/${props.iconName}.svg`)}/>)
         : null
       }
-      <span className={'button-text'}>{props.text}</span>
+      <span className='button-text'>{props.text}</span>
     </a>
   )
 }

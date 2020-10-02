@@ -19,9 +19,9 @@ class PocketList extends Component<{}, {}> {
 
   render() {
     return (
-     <div className={'pocket-list'}>
+     <div className='pocket-list'>
        <h1>Currency pockets</h1>
-       <div className={'pocket-list-content'}>
+       <div className='pocket-list-content'>
          <Pocket pocket={this.pockets[0]}/>
          <Pocket pocket={this.pockets[1]}/>
        </div>
