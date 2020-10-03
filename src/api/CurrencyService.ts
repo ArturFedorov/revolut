@@ -1,11 +1,18 @@
 import axios from 'axios';
 import {ICurrency} from '../shared/interfaces/ICurrency';
+import { config } from '../config/config';
 
-//access_key=7bafbce6fde2b4f7e992517234f3c387&symbols=USD,GBP,EUR&format=1
-const apiKey = process.env.REA
+
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export class CurrencyService {
-  static getCurrencyList () {
-    return axios.get<ICurrency[]>('/spotify/login');
+  static getCurrencyList (base = 'EUR') {
+    return axios.get<ICurrency[]>(config.api, {
+      params: {
+        app_id: apiKey,
+        // base,
+        symbols: Object.keys(config.currencyList).join(',')
+      }
+    });
   };
 }

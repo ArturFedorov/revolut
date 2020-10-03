@@ -6,5 +6,10 @@
 
   &-content {
     display: flex;
+    justify-content: center;
+  }
+
+  &-item:not(:last-child) {
+    margin-right: $building-unit-x4;
   }
 }

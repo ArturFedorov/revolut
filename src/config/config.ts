@@ -1,10 +1,10 @@
 import {IConfiguration} from '../shared/interfaces/IConfiguration';
 
 export const config: IConfiguration = {
-  api: 'http://data.fixer.io/api/latest',
+  api: 'https://openexchangerates.org/api/latest.json',
   currencyList: {
-    bp: 'British Pound',
-    eur: 'Euro',
-    usd: 'US Dollar'
+    GBP: 'British Pound',
+    EUR: 'Euro',
+    USD: 'US Dollar'
   }
 }
