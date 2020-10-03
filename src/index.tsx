@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import {pocketReducer} from '../src/store/reducers/pocketReducer';
+
+const store = createStore(pocketReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
