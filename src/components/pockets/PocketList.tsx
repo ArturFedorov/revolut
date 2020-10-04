@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Pocket from './Pocket/Pocket';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import {IPocketState} from '../../store/reducers/pocketReducer';
 import {IAppState} from '../../store/reducers/rootReducer';
 

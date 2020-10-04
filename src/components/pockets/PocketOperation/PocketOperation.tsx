@@ -11,11 +11,23 @@ const PocketOperation = ({operation}: {operation: IOperation}) => {
       <div className={'pocket-operation-info'}>
         <div className={'pocket-operation-balance'}>
           <p className={'no-margin'}>{operation.description}</p>
-          <p className={'no-margin'}>{operation.sumFrom}</p>
+          <p className={'no-margin'}>
+            <span>{operation.isDeduction ? '–' : '+'} </span>
+            <span>{operation.sumFrom.toFixed(2)}</span>
+            <span className='is-tiny'> {operation.currency}</span>
+          </p>
         </div>
         <div className={'pocket-operation-balance'}>
-          <p className={'no-margin is-caption is-secondary'}>{operation.date}</p>
-          <p className={'no-margin is-caption is-blue'}>{operation.sumTo}</p >
+          <p className={'no-margin'}>
+            <span className='is-caption is-secondary'>
+              {operation.date.toLocaleTimeString()}
+            </span>
+          </p>
+          <p className={'no-margin'}>
+            <span>{operation.isDeduction ? '+' : '-'} </span>
+            <span className='is-caption is-blue'>{operation.sumTo.toFixed(2)}</span>
+            <span className='is-tiny is-blue'> {operation.exchangeCurrency}</span>
+          </p >
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import {IPocket} from '../../../shared/interfaces/IPocket';
 import pound from '../../../assets/icons/pound.svg';
 import dollar from '../../../assets/icons/dollar.svg';
 import euro from '../../../assets/icons/euro.svg';
+import currency from '../../../assets/icons/currency.svg';
 import {Currencies} from '../../../shared/constants/Currencies';
 
 class Pocket extends Component<{pocket: IPocket}, {}> {
@@ -14,8 +15,10 @@ class Pocket extends Component<{pocket: IPocket}, {}> {
       return pound;
     } else if (id === Currencies.EUR) {
       return euro;
-    } else {
+    } else if (id===Currencies.USD) {
       return dollar;
+    } else {
+      return currency;
     }
   }
 
@@ -39,7 +42,7 @@ class Pocket extends Component<{pocket: IPocket}, {}> {
             iconName={'plus'}/>
         </div>
         <div className='pocket-content'>
-          <h2 className='no-margin'>{this.props.pocket.balance}</h2>
+          <h2 className='pocket-balance'>{this.props.pocket.balance.toFixed(2)}</h2>
           { this.props.pocket.operations.length ? (<p className='is-small'>Today</p>): null }
 
           {

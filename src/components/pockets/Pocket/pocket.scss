@@ -8,6 +8,10 @@
   border-radius: $border-radius;
   padding: $building-unit-x2 $building-unit-x3 $building-unit-x3 $building-unit-x3;
 
+  &-balance {
+    margin: 0 0 $building-unit 0;
+  }
+
   &-buttons {
     margin: $building-unit-x2 0 $building-unit-x3 0;
   }
@@ -21,7 +25,6 @@
     border-radius: $building-unit;
     height: 100%;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     padding: $building-unit-x2;
     overflow: hidden;

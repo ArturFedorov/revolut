@@ -1,6 +1,8 @@
 import {UPDATE_POCKET} from '../types/ActionTypes';
 import {IPocket} from '../../shared/interfaces/IPocket';
 import {config} from '../../config/config';
+import {Currencies} from '../../shared/constants/Currencies';
+import {OperationUtils} from '../../shared/utils/OperationUtils';
 
 interface IPocketAction {
   type: string;
@@ -14,9 +16,9 @@ export interface IPocketState {
 const initialState: IPocketState = {
   pockets: Object.keys(config.currencyList).map(currency => ({
     id: currency,
-    balance: 0,
+    balance: currency === Currencies.USD ? 1000 : 0,
     currency: config.currencyList[currency],
-    operations: []
+    operations: currency === Currencies.USD ? [OperationUtils.setInitialDollarOperation()] : []
   }))
 }
 

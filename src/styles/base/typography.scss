@@ -48,6 +48,10 @@ p {
     @include font-face($font-regular, $font-size-caption, $line-height-caption);
   }
 
+  &.is-tiny {
+    @include font-face($font-regular, $font-size-tiny, $line-height-caption);
+  }
+
   &.is-blue {
     color: $blue;
   }

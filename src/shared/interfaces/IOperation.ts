@@ -1,8 +1,7 @@
-import {Currencies} from '../constants/Currencies';
-
 export interface IOperation {
-  id: number;
-  currency: Currencies.EUR | Currencies.GBP | Currencies.USD;
+  id: string;
+  currency: string;
+  exchangeCurrency: string;
   description: string;
   date: Date;
   rate: number;

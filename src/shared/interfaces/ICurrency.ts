@@ -1,4 +1,5 @@
+import {IApiRate} from './IRate';
+
 export interface ICurrency {
-    code: string;
-    state: string;
+  [key: string]: string;
 }
