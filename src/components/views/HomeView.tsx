@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PocketList from '../pockets/PocketList';
 import {CurrencyService} from '../../api/CurrencyService';
+import RateList from '../rates/RateList';
 
 class HomeView extends Component<{}, {}> {
   componentDidMount() {
@@ -11,6 +12,7 @@ class HomeView extends Component<{}, {}> {
     return (
       <div className='home'>
         <PocketList />
+        <RateList />
       </div>
     )
   }

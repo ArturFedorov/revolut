@@ -1,0 +1,14 @@
+.rate-list {
+  display: flex;
+  flex-direction: column;
+
+  &-content {
+    display: flex;
+  }
+
+  &-item {
+    &:not(:last-child) {
+      margin-right: $building-unit-x3;
+    }
+  }
+}

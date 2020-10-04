@@ -24,7 +24,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: $building-unit-x2;
-    overflow: auto;
+    overflow: hidden;
   }
 
   &-devider {

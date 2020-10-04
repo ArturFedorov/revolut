@@ -19,4 +19,12 @@
   &-text {
     font-size: $font-size-caption;
   }
+
+  &.is-white {
+    background-color: $white;
+
+    .button-text {
+      color: $black;
+    }
+  }
 }

@@ -3,7 +3,7 @@ import React from 'react';
 interface IButtonProps {
   text: string;
   className?: string;
-  iconName?: 'plus' | 'refresh';
+  iconName?: 'plus' | 'refresh' | 'refresh_black';
 }
 
 const Button = (props: IButtonProps) => {

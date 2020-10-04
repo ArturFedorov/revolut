@@ -1,7 +1,6 @@
 import {UPDATE_POCKET} from '../types/ActionTypes';
 import {IPocket} from '../../shared/interfaces/IPocket';
 import {config} from '../../config/config';
-import {Currencies} from '../../shared/constants/Currencies';
 
 interface IPocketAction {
   type: string;

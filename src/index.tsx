@@ -6,9 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import './styles/styles.scss';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import {pocketReducer} from '../src/store/reducers/pocketReducer';
+import {rootReducer} from '../src/store/reducers/rootReducer';
 
-const store = createStore(pocketReducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>

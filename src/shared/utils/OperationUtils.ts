@@ -1,4 +1,5 @@
 import {IOperation} from '../interfaces/IOperation';
+import {IRate} from '../interfaces/IRate';
 
 export class OperationUtils {
   static calculateBalance(operations: IOperation[]) {
@@ -11,5 +12,11 @@ export class OperationUtils {
     }
 
     return balance;
+  }
+
+  static combineRates(rates: IRate[]) {
+    return rates.map(rate => {
+      
+    })
   }
 }
