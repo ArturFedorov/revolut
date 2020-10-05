@@ -1,3 +1,5 @@
-.App {
-  background: red;
+@import './styles/base/variables';
+
+.app {
+  padding: 0 $building-unit-x6;
 }

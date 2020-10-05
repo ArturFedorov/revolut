@@ -1,0 +1,31 @@
+.button {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  background-color: $blue;
+  border-radius: $border-radius;
+  color: $white;
+  padding: $building-unit-x0_5 $building-unit;
+  transition: $default-transition;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $blue-dark;
+  }
+
+  &-icon {
+    margin-right: $building_unit;
+  }
+
+  &-text {
+    font-size: $font-size-caption;
+  }
+
+  &.is-white {
+    background-color: $white;
+
+    .button-text {
+      color: $black;
+    }
+  }
+}

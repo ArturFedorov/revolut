@@ -1,0 +1,12 @@
+@import 'src/components/root/header/header';
+@import 'src/components/pockets/Pocket/pocket';
+@import 'src/components/pockets/PocketOperation/pocket-operation';
+@import 'src/components/pockets/pocket-list';
+
+@import 'src/components/rates/rate-list';
+@import 'src/components/rates/rate/rate';
+
+@import 'src/components/exchange/ExchangeItem/exchange-item';
+
+// common components
+@import 'src/components/common/Button/button';

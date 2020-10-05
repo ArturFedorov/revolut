@@ -1,0 +1,18 @@
+$rate-width: 140px;
+$rate-height: 165px;
+
+.rate {
+  display: flex;
+  border-radius: $border-radius;
+  flex-direction: column;
+  padding: $building-unit-x2;
+  min-height: $rate-height;
+  min-width: $rate-width;
+  justify-content: space-between;
+  background: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #F3F4F5;
+  box-shadow: $box-shadow;
+
+  &-button {
+    width: 100%;
+  }
+}

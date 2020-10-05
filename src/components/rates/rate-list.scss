@@ -1,0 +1,15 @@
+.rate-list {
+  display: flex;
+  flex-direction: column;
+
+  &-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-item {
+    &:not(:last-child) {
+      margin-right: $building-unit-x3;
+    }
+  }
+}
