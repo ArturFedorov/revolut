@@ -28,6 +28,7 @@ h5 {
 
 a,
 div,
+label,
 span,
 p {
   @include font-face($font-regular, $font-size-regular, $line-height-regular);

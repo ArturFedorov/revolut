@@ -1,6 +1,7 @@
 import React from 'react';
 import {IRate} from '../../../shared/interfaces/IRate';
 import Button from '../../common/Button/Button';
+import {Link} from 'react-router-dom';
 
 const Rate = ({rate}: {rate: IRate}) => {
   return (
@@ -9,10 +10,13 @@ const Rate = ({rate}: {rate: IRate}) => {
         <p className='no-margin'>{rate.baseCurrency}</p>
         <p className='no-margin is-secondary is-caption'>{rate.baseCurrencyName}</p>
       </div>
-      <Button
-        className='rate-button is-white'
-        text={rate.rate.toString()}
-        iconName={'refresh_black'}/>
+      <Link
+        to={ {pathname: `exchange/${rate.baseCurrency}`}}>
+        <Button
+          className='rate-button is-white'
+          text={rate.rate.toString()}
+          iconName={'refresh_black'}/>
+      </Link>
       <div>
         <p className='no-margin'>{rate.exchangeCurrency}</p>
         <p className='no-margin is-secondary is-caption'>{rate.exchangeCurrencyName}</p>

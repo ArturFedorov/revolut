@@ -7,7 +7,7 @@ export class OperationUtils {
   static calculateBalance(operations: IOperation[]) {
     let balance = 0;
 
-    for(let index = operations.length - 1 ; index > 0; index--) {
+    for(let index = operations.length - 1 ; index >= 0; index--) {
       operations[index].isDeduction
         ? balance -= operations[index].sumFrom
         : balance += operations[index].sumFrom;

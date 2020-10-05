@@ -7,6 +7,7 @@
   color: $white;
   padding: $building-unit-x0_5 $building-unit;
   transition: $default-transition;
+  text-decoration: none;
 
   &:hover {
     background-color: $blue-dark;

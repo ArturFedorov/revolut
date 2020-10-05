@@ -6,10 +6,12 @@ import {Link} from 'react-router-dom';
 const Header = () => {
   return (
     <div className='header'>
-      <img
-        className='header-logo'
-        src={logo}
-        alt={'logo'}/>
+      <Link to='/'>
+        <img
+          className='header-logo'
+          src={logo}
+          alt={'logo'}/>
+      </Link>
         <Link
           className='header-setting'
           to='/settings'>
