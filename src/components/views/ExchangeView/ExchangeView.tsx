@@ -5,23 +5,27 @@ import {IPocket} from '../../../shared/interfaces/IPocket';
 import {IPocketAction} from '../../../store/reducers/pocketReducer';
 import {SET_ACTIVE_POCKET, SET_EXCHANGE_CURRENCY} from '../../../store/types/ActionTypes';
 import Pocket from '../../pockets/Pocket/Pocket';
-import refresh from '../../../assets/icons/refresh.svg';
 import ExchangeItem from '../../exchange/ExchangeItem/ExchangeItem';
+import {IRateAction} from '../../../store/reducers/rateReducer';
+import {CurrencyService} from '../../../api/CurrencyService';
+import {OperationUtils} from '../../../shared/utils/OperationUtils';
+import ExchangeForm from '../../exchange/ExchnageForm/ExchangeForm';
 
 interface IExchangeState {
   activePocket: IPocket | undefined;
   exchangeCurrency?: IPocket | undefined;
   pockets: IPocket[];
+  setActivePocket: (pocket: IPocket) => void;
+  setExchangeCurrency: (pocket: IPocket) => void;
+  fetchRates: () => void;
   match: {
     params: {
       currency: string
     }
-  },
-  setActivePocket: (pocket: IPocket) => void,
-  setExchangeCurrency: (pocket: IPocket) => void
+  }
 }
 
-class ExchangeView extends Component<IExchangeState, {}> {
+class ExchangeView extends Component<IExchangeState, { exchangeRate: string | number | null}> {
   otherRates: IPocket[] = [];
   componentDidMount() {
     const currency = this.props.match.params.currency;
@@ -33,6 +37,16 @@ class ExchangeView extends Component<IExchangeState, {}> {
 
       if(this.otherRates.length) {
         this.props.setExchangeCurrency(this.otherRates[0]);
+
+        // select rate for pair
+        CurrencyService.getCurrencyList()
+          .then(response => {
+            const exchangeRate = OperationUtils.combineRates(response.data.rates)
+              .find(rate => rate.baseCurrency === activePocket.id && rate.exchangeCurrency === this.otherRates[0].id);
+            //this.setState();
+
+            this.setState({exchangeRate: exchangeRate ? exchangeRate.rate : null});
+          })
       }
     }
   }
@@ -52,33 +66,11 @@ class ExchangeView extends Component<IExchangeState, {}> {
               : null
           }
         </div>
-        <div className='exchange-form'>
-          <div className="exchange-wrapper">
-            <label className="is-caption" htmlFor="source">
-              Exchange from {this.props.activePocket?.currency}
-            </label>
-            <input
-              id="source"
-              type="number"
-              placeholder="Exchange from"
-              className='exchange-input'/>
-          </div>
-          <div className='exchange-buttons'>
-            <button className='exchange-button'>
-              <img src={refresh} alt="refresh"/>
-            </button>
-          </div>
-          <div className="exchange-wrapper">
-            <label className="is-caption" htmlFor="aim">
-              Exchange to
-            </label>
-            <input
-              id="aim"
-              type="number"
-              placeholder="Exchange to"
-              className='exchange-input'/>
-          </div>
-        </div>
+        { this.state
+          ? <ExchangeForm
+              exchangeRate={this.state.exchangeRate}
+              />
+          : null}
         <div className="exchange-rates">
           {
             this.otherRates.map(pocket => (
@@ -94,10 +86,10 @@ class ExchangeView extends Component<IExchangeState, {}> {
   }
 }
 
-const mapDispatchToProps = (dispatch: React.Dispatch<IPocketAction>) => {
+const mapDispatchToProps = (dispatch: React.Dispatch<IPocketAction | IRateAction>) => {
   return {
     setActivePocket: (pocket: IPocket) => dispatch({type: SET_ACTIVE_POCKET, pocket}),
-    setExchangeCurrency: (pocket: IPocket) => dispatch({type: SET_EXCHANGE_CURRENCY, pocket})
+    setExchangeCurrency: (pocket: IPocket) => dispatch({type: SET_EXCHANGE_CURRENCY, pocket}),
   }
 }
 

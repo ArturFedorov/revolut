@@ -15,7 +15,7 @@ const Header = () => {
         <Link
           className='header-setting'
           to='/settings'>
-          <img src={settings} />
+          <img src={settings} alt="settings"/>
         </Link>
     </div>
   )

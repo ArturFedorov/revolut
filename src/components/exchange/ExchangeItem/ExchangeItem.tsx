@@ -15,7 +15,7 @@ const ExchangeItem = (props: IExchangeItemProps) => {
   return (
     <div
       className={`exchange-item ${props.isActive ? 'is-active' : ''}`}
-      onClick={ ()=> props.setExchangeCurrency(props.pocket)}>
+      onClick={ () => props.setExchangeCurrency(props.pocket)}>
       <span>{props.pocket.currency}</span>
       <span className="exchange-item-number is-bold">{OperationUtils.calculateBalance(props.pocket.operations).toFixed(2)}</span>
     </div>
