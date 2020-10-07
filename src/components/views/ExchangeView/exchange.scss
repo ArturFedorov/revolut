@@ -7,32 +7,27 @@
   &-active {
     display: flex;
     justify-content: center;
+    margin-right: $building-unit-x2;
+
+    @media ($tablet) {
+      margin-right: 0;
+    }
   }
 
-  &-button {
+  &-content {
     display: flex;
-    cursor: pointer;
-    background-color: $blue;
-    border-radius: $border-radius;
-    outline: none;
-    box-shadow: none;
-    border: 0;
-    align-items: center;
-    justify-content: center;
-    padding: $building-unit $building-unit-x2;
-    transition: $default_transition;
 
-    .is-white {
-      margin-left: $building-unit;
+    @media ($tablet) {
+      flex-direction: column;
     }
+  }
 
-    &:disabled {
-      pointer-events: none;
-      background-color: $gray;
-    }
+  &-other {
+    margin-left: $building-unit-x2;
 
-    &:hover {
-      background-color: $blue-dark;
+    @media ($tablet) {
+      margin-left: 0;
+      margin-top: $building-unit-x2;
     }
   }
 
@@ -41,14 +36,13 @@
     justify-content: center;
   }
 
-  &-form {
+  &-loading {
     display: flex;
-    background: $bg;
-    border-radius: $border-radius;
-    flex-direction: column;
+    margin: $building-unit-x2 0;
+    padding: $building-unit-x2;
     width: 345px;
-    padding: $building-unit-x4 $building-unit-x3;
-    margin-top: $building-unit-x2;
+    border-radius: $border-radius;
+    background: $bg;
   }
 
   &-input {
@@ -81,7 +75,6 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 345px;
     padding: $building-unit-x3 $building-unit;
   }
 }

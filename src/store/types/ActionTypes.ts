@@ -1,4 +1,4 @@
-export const UPDATE_POCKET = 'pockets/UPDATE_POCKET';
+export const UPDATE_POCKETS = 'pockets/UPDATE_POCKETS';
 
 export const FETCH_RATES = 'rates/FETCH_RATES';
 

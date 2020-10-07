@@ -12,10 +12,8 @@ class App extends React.Component {
         <Router>
           <Header />
           <Switch>
-            <Route exact path="/">
-              <HomeView />
-            </Route>
-            <Route path="/exchange/:currency" component={ExchangeView} />
+            <Route exact path="/" component={HomeView} />
+            <Route path="/exchange/:currency/:exchangeCurrency" component={ExchangeView} />
           </Switch>
         </Router>
       </div>

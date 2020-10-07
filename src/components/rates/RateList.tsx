@@ -24,7 +24,7 @@ class RateList extends Component<IRateProps, {rates: IRate[]}> {
   componentDidMount() {
     this.props.fetchList();
     this.pollRates();
-    this.intevalId =  Number(setInterval(() => this.pollRates(), 10000));
+    this.intevalId =  Number(setInterval(() => this.pollRates(), 60000));
   }
 
   componentWillUnmount() {
@@ -41,7 +41,7 @@ class RateList extends Component<IRateProps, {rates: IRate[]}> {
   render() {
     return (
       <div className='rate-list'>
-        <h1>Exchange Rates</h1>
+        <h1 className="rate-list-header">Exchange Rates</h1>
         <div className='rate-list-content'>
           {
             this.state

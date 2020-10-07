@@ -11,10 +11,10 @@ const Rate = ({rate}: {rate: IRate}) => {
         <p className='no-margin is-secondary is-caption'>{rate.baseCurrencyName}</p>
       </div>
       <Link
-        to={ {pathname: `exchange/${rate.baseCurrency}`}}>
+        to={ {pathname: `/exchange/${rate.baseCurrency}/${rate.exchangeCurrency}`}}>
         <Button
           className='rate-button is-white'
-          text={rate.rate.toString()}
+          text={ rate.rate ? rate.rate.toFixed(4) : ''}
           iconName={'refresh_black'}/>
       </Link>
       <div>

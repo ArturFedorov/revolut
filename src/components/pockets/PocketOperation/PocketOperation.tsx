@@ -20,7 +20,7 @@ const PocketOperation = ({operation}: {operation: IOperation}) => {
         <div className={'pocket-operation-balance'}>
           <p className={'no-margin'}>
             <span className='is-caption is-secondary'>
-              {operation.date.toLocaleTimeString()}
+              {new Date(operation.date).toLocaleTimeString()}
             </span>
           </p>
           <p className={'no-margin'}>

@@ -1,12 +1,42 @@
 .exchange {
   &-form {
     display: flex;
+    justify-content: center;
     background: $bg;
     border-radius: $border-radius;
     flex-direction: column;
     width: 345px;
+    max-height: 360px;
     padding: $building-unit-x4 $building-unit-x3;
     margin-top: $building-unit-x2;
+  }
+
+  &-button {
+    display: flex;
+    cursor: pointer;
+    background-color: $blue;
+    border-radius: $border-radius;
+    outline: none;
+    box-shadow: none;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    padding: $building-unit $building-unit-x2;
+    transition: $default_transition;
+
+    .is-white {
+      margin-left: $building-unit;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background-color: $gray;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: $blue-dark;
+    }
   }
 
   &-input {
@@ -35,11 +65,10 @@
     }
   }
 
-  &-rates {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 345px;
-    padding: $building-unit-x3 $building-unit;
+  &-error {
+    &-message {
+      color: $red;
+      margin: 0;
+    }
   }
 }

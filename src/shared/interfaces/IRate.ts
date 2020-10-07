@@ -4,7 +4,7 @@ export interface IRate {
   baseCurrencyName: string;
   exchangeCurrency: string;
   exchangeCurrencyName: string;
-  rate: number | string;
+  rate: number | null;
 }
 
 export interface IApiRate {

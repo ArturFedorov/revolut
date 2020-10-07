@@ -31,7 +31,7 @@ export class OperationUtils {
           baseCurrencyName: this.getCurrencyName(rate),
           exchangeCurrency: otherRate,
           exchangeCurrencyName: this.getCurrencyName(otherRate),
-          rate: (rates[rate]/rates[otherRate]).toFixed(4)
+          rate: (rates[rate]/rates[otherRate])
         });
       });
 
@@ -50,6 +50,26 @@ export class OperationUtils {
       sumTo: 10000 * 0.8538,
       isDeduction: false,
       description: 'Exchange from EUR',
+      date: new Date()
+    };
+  }
+
+  static createOperation(
+    currency: string,
+    exchangeCurrency: string,
+    rate: number,
+    sumFrom: number,
+    sumTo: number,
+    isDeduction: boolean): IOperation {
+    return {
+      id: uuidv4(),
+      currency,
+      exchangeCurrency,
+      rate,
+      sumFrom,
+      sumTo,
+      isDeduction,
+      description: `Exchange ${isDeduction ? 'from' : 'to'} ${isDeduction ? exchangeCurrency : currency}`,
       date: new Date()
     };
   }

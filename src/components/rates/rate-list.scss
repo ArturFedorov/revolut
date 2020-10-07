@@ -6,6 +6,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+
+    @media ($tablet) {
+     justify-content: center;
+    }
   }
 
   &-item {

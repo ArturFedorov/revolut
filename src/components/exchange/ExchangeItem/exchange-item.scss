@@ -8,6 +8,7 @@
   transition: $default_transition;
   border: 1px solid transparent;
   width: 50%;
+  margin-bottom: $building-unit;
 
   &:hover {
     background-color: $gray;
