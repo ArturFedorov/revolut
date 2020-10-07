@@ -20,6 +20,7 @@ interface IExchangeState {
   setExchangeCurrency: (pocket: IPocket) => void;
   fetchRates: () => void;
   match: {
+    url: string,
     params: {
       currency: string,
       exchangeCurrency: string
@@ -31,9 +32,7 @@ class ExchangeView extends Component<IExchangeState, { exchangeRate: number | nu
   otherRate = {} as IPocket | undefined;
 
   componentDidUpdate(prevProps: Readonly<IExchangeState>, prevState: Readonly<{ exchangeRate: number | null; rates: IRate[] }>, snapshot?: any) {
-    console.log('updated');
-    if(prevProps.activePocket?.id !== this.props.activePocket?.id
-      || prevProps.exchangeCurrency?.id !==this.props.exchangeCurrency?.id) {
+    if(prevProps.match.url !== this.props.match.url) {
       this.setPockets();
     }
   }
@@ -112,7 +111,7 @@ const mapDispatchToProps = (dispatch: React.Dispatch<IPocketAction | IRateAction
   }
 }
 
-const mapStateToProps = (state: IAppState, ownProps: {}) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     activePocket: state.pockets.activePocket,
     exchangeCurrency: state.pockets.exchangeCurrency,

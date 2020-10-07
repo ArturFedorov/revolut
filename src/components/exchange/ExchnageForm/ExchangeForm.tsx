@@ -12,7 +12,7 @@ export interface IFormProps {
   exchangeTo: IPocket | undefined;
   exchangeRate: number | null;
   updatePockets: (exchangeFrom: IPocket, exchangeTo: IPocket) => void
-};
+}
 
 interface IFormState {
   [key: string]: number | string | undefined | boolean;
@@ -104,7 +104,7 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
 
   handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event);
+    this.handleClick();
   }
 
   convertCurrency(value: number, devide = false) {
@@ -208,7 +208,7 @@ const mapDispatchToProps = (dispatch: React.Dispatch<IPocketAction>) => {
   }
 }
 
-const mapStateToProps = (state: IAppState, ownProps: {}) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     exchangeFrom: state.pockets.activePocket,
     exchangeTo: state.pockets.exchangeCurrency

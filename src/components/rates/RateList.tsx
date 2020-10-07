@@ -24,7 +24,7 @@ class RateList extends Component<IRateProps, {rates: IRate[]}> {
   componentDidMount() {
     this.props.fetchList();
     this.pollRates();
-    this.intevalId =  Number(setInterval(() => this.pollRates(), 60000));
+    this.intevalId =  Number(setInterval(() => this.pollRates(), 30000));
   }
 
   componentWillUnmount() {
@@ -65,7 +65,7 @@ const mapDispatchToProps = (dispatch: React.Dispatch<IRateAction>) => {
   }
 }
 
-const mapStateToProps = (state: IAppState, ownProps: {}) => {
+const mapStateToProps = (state: IAppState) => {
   return {
     currencies: state.rates.currencies,
     rates: state.rates.rates

@@ -34,7 +34,6 @@ export const pocketReducer = (state = initialState, action: IPocketAction) => {
   switch (action.type) {
     case UPDATE_POCKETS:
       const parsed: IPocket[] = pockets ? JSON.parse(pockets) : [...state.pockets];
-      console.log(parsed);
       const pocketIndex = parsed.findIndex(pocket => pocket.id === action.pocket.id);
       const secondPocketIndex = parsed.findIndex(pocket => pocket.id === action.secondPocket!.id)
 
