@@ -35,13 +35,7 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
   componentDidUpdate(prevProps: Readonly<IFormProps>, prevState: Readonly<IFormState>, snapshot?: any) {
     if(prevProps.exchangeFrom?.id !== this.props.exchangeFrom?.id ||
       prevProps.exchangeTo?.id !== this.props.exchangeTo!.id) {
-      this.setState({
-        exchangeFrom: '',
-        exchangeTo: '',
-        errorMessage: '',
-        balance: OperationUtils.calculateBalance(this.props.exchangeFrom!.operations),
-        isValid: false
-      })
+      this.resetState();
     }
   }
 
@@ -66,13 +60,17 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
 
       this.valueIsValid(value);
     } else {
-      this.setState({
-        exchangeFrom: '',
-        exchangeTo: '',
-        isValid: false
-      });
+      this.resetState();
     }
   }
+
+  resetState = () => this.setState({
+    exchangeFrom: '',
+    exchangeTo: '',
+    errorMessage: '',
+    balance: OperationUtils.calculateBalance(this.props.exchangeFrom!.operations),
+    isValid: false
+  })
 
   handleClick = () => {
     if(this.state.isValid) {
@@ -99,12 +97,9 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
       ));
 
       this.props.updatePockets(this.props.exchangeFrom!, this.props.exchangeTo!);
-    }
-  }
 
-  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    this.handleClick();
+      this.resetState();
+    }
   }
 
   convertCurrency(value: number, devide = false) {
@@ -148,7 +143,7 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
 
   render() {
     return (
-        <form className='exchange-form' onSubmit={this.handleSubmit}>
+        <div className='exchange-form'>
           <div className="exchange-wrapper">
             <label className="is-caption" htmlFor="exchangeFrom">
               Exchange from {this.props.exchangeFrom?.currency}
@@ -191,7 +186,7 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
               className='exchange-input'
               onChange={this.handleChange}/>
           </div>
-        </form>
+        </div>
 
     )
   }
