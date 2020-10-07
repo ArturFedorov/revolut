@@ -1,0 +1,30 @@
+$messageWidth: 50%;
+
+.error {
+  color: $white;
+  display: flex;
+  background-color: $red;
+  align-items: center;
+  padding: $building_unit-x2 $building_unit-x3;
+  position: fixed;
+  width: $messageWidth;
+  left: calc(50% - #{$messageWidth} / 2);
+  top: 60px;
+  z-index: 3;
+  border-radius: $border-radius;
+  cursor: pointer;
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.5s ease-in-out;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.5s ease-in-out;
+  }
+
+  &-close {
+    margin-left: auto;
+    width: $building-unit-x5;
+  }
+}
