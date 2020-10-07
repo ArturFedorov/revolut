@@ -7,6 +7,9 @@ $gray: #A6A6A6;
 $blue: #0666EB;
 $blue-dark: #0042b7;
 $blue-gray: #8697A9;
+$red: #C34F46;
+
+$bg: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #F3F4F5;
 
 
 // Building Units
@@ -63,3 +66,10 @@ $font-ultra: 900;
 $box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 $border-radius: $building-unit;
 $default-transition: all .5s;
+
+// media queries
+$mobile: 'max-width: 767px';
+$tablet: 'max-width: 1024px';
+$desktop: 'max-width: 1279px';
+$wide-desktop: 'max-width: 1679px';
+$large-desktop: 'max-width: 1899px';

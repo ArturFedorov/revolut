@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {IRate} from '../../shared/interfaces/IRate';
 import Rate from './rate/Rate';
-import {IRateAction, IRateState} from '../../store/reducers/rateReducer';
+import {IRateAction} from '../../store/reducers/rateReducer';
 import { connect } from 'react-redux';
 import {FETCH_CURRENCY_LIST, FETCH_RATES} from '../../store/types/ActionTypes';
 import {IAppState} from '../../store/reducers/rootReducer';
@@ -22,16 +22,9 @@ class RateList extends Component<IRateProps, {rates: IRate[]}> {
   intevalId = 0;
 
   componentDidMount() {
-    console.log(this.props);
     this.props.fetchList();
-    // this.props.fetchRates();
-    // // console.log(this.state)
-    // CurrencyService.getCurrencyList()
-    //   .then(response => {
-    //     this.setState({rates: OperationUtils.combineRates(response.data.rates)});
-    //   })
     this.pollRates();
-    this.intevalId =  Number(setInterval(() => this.pollRates(), 10000));
+    this.intevalId =  Number(setInterval(() => this.pollRates(), 30000));
   }
 
   componentWillUnmount() {
@@ -48,7 +41,7 @@ class RateList extends Component<IRateProps, {rates: IRate[]}> {
   render() {
     return (
       <div className='rate-list'>
-        <h1>Exchange Rates</h1>
+        <h1 className="rate-list-header">Exchange Rates</h1>
         <div className='rate-list-content'>
           {
             this.state
@@ -72,9 +65,7 @@ const mapDispatchToProps = (dispatch: React.Dispatch<IRateAction>) => {
   }
 }
 
-const mapStateToProps = (state: IAppState, ownProps: {}) => {
-  // console.log(state.pockets);
-  // console.log(state.rates, 'mappae');
+const mapStateToProps = (state: IAppState) => {
   return {
     currencies: state.rates.currencies,
     rates: state.rates.rates

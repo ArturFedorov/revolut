@@ -26,7 +26,6 @@ export const rateReducer = async (state = initialState, action: IRateAction) => 
   switch (action.type) {
     case FETCH_RATES:
       const response = await CurrencyService.getCurrencyList();
-      console.log(OperationUtils.combineRates(response.data.rates));
       return {
         ...state,
         rates: OperationUtils.combineRates(response.data.rates)

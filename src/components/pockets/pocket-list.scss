@@ -6,10 +6,16 @@
 
   &-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
   &-item:not(:last-child) {
+    margin-bottom: $building-unit-x4;
     margin-right: $building-unit-x4;
+
+    @media ($tablet) {
+      margin-right: 0;
+    }
   }
 }

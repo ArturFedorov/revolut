@@ -1,4 +1,4 @@
-import {SET_ACTIVE_POCKET, SET_EXCHANGE_CURRENCY, UPDATE_POCKET} from '../types/ActionTypes';
+import {SET_ACTIVE_POCKET, SET_EXCHANGE_CURRENCY, UPDATE_POCKETS} from '../types/ActionTypes';
 import {IPocket} from '../../shared/interfaces/IPocket';
 import {config} from '../../config/config';
 import {Currencies} from '../../shared/constants/Currencies';
@@ -7,6 +7,7 @@ import {OperationUtils} from '../../shared/utils/OperationUtils';
 export interface IPocketAction {
   type: string;
   pocket: IPocket;
+  secondPocket?: IPocket;
 }
 
 export interface IPocketState {
@@ -31,10 +32,17 @@ const initialState: IPocketState = {
 
 export const pocketReducer = (state = initialState, action: IPocketAction) => {
   switch (action.type) {
-    case UPDATE_POCKET:
-      const pocketIndex = state.pockets.findIndex(pocket => pocket.id === action.pocket.id);
-      const newState = [...state.pockets].splice(pocketIndex, 1, action.pocket);
-      return { ...state, pockets: newState };
+    case UPDATE_POCKETS:
+      const parsed: IPocket[] = pockets ? JSON.parse(pockets) : [...state.pockets];
+      const pocketIndex = parsed.findIndex(pocket => pocket.id === action.pocket.id);
+      const secondPocketIndex = parsed.findIndex(pocket => pocket.id === action.secondPocket!.id)
+
+      parsed[pocketIndex] = action.pocket;
+      parsed[secondPocketIndex!] = action.secondPocket!;
+
+      localStorage.setItem('pockets', JSON.stringify(parsed));
+
+      return { ...state, pockets: parsed };
     case SET_ACTIVE_POCKET:
       return {
         ...state,

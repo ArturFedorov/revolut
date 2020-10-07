@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Button from '../../common/Button/Button';
-import {Link} from 'react-router-dom';
 import noData from '../../../assets/icons/nodata.svg';
 import PocketOperation from '../PocketOperation/PocketOperation';
 import {IPocket} from '../../../shared/interfaces/IPocket';
@@ -35,18 +33,7 @@ class Pocket extends Component<{pocket: IPocket}, {}> {
             alt='pound'/>
             <div className='pocket-devider'></div>
         </div>
-        <div className='pocket-buttons'>
-          <Link
-            to={ {pathname: `/exchange/${this.props.pocket.id}`}}>
-            <Button
-              className='pocket-button'
-              text={'Exchange'}
-              iconName={'refresh'}/>
-          </Link>
-          <Button
-            text={'Details'}
-            iconName={'plus'}/>
-        </div>
+        <div className='pocket-buttons'></div>
         <div className='pocket-content'>
           <h2 className='pocket-balance'>
             {OperationUtils.calculateBalance(this.props.pocket.operations).toFixed(2)}

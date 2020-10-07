@@ -1,5 +1,3 @@
-$bg: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #F3F4F5;
-
 .exchange {
   display: flex;
   flex-direction: column;
@@ -9,29 +7,27 @@ $bg: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #
   &-active {
     display: flex;
     justify-content: center;
+    margin-right: $building-unit-x2;
+
+    @media ($tablet) {
+      margin-right: 0;
+    }
   }
 
-  &-button {
+  &-content {
     display: flex;
-    cursor: pointer;
-    background-color: $blue;
-    border-radius: 50%;
-    outline: none;
-    box-shadow: none;
-    border: 0;
-    align-items: center;
-    justify-content: center;
-    width: $building-unit-x7;
-    height: $building-unit-x7;
-    transition: $default_transition;
 
-    &:disabled {
-      pointer-events: none;
-      background-color: $gray;
+    @media ($tablet) {
+      flex-direction: column;
     }
+  }
 
-    &:hover {
-      background-color: $blue-dark;
+  &-other {
+    margin-left: $building-unit-x2;
+
+    @media ($tablet) {
+      margin-left: 0;
+      margin-top: $building-unit-x2;
     }
   }
 
@@ -40,14 +36,13 @@ $bg: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #
     justify-content: center;
   }
 
-  &-form {
+  &-loading {
     display: flex;
-    background: $bg;
-    border-radius: $border-radius;
-    flex-direction: column;
+    margin: $building-unit-x2 0;
+    padding: $building-unit-x2;
     width: 345px;
-    padding: $building-unit-x4 $building-unit-x3;
-    margin-top: $building-unit-x2;
+    border-radius: $border-radius;
+    background: $bg;
   }
 
   &-input {
@@ -80,7 +75,6 @@ $bg: linear-gradient(217.3deg, #EFEFEF 10.18%, rgba(255, 255, 255, 0) 97.48%), #
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 345px;
     padding: $building-unit-x3 $building-unit;
   }
 }
