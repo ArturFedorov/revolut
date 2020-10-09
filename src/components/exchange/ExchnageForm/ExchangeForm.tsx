@@ -121,7 +121,18 @@ class ExchangeForm extends Component<IFormProps, IFormState> {
       return false;
     }
 
-    if(parseFloat(value) > this.state.balance!) {
+    const parsedValue = parseFloat(value);
+
+    if(parsedValue <= 0 ) {
+      this.setState({
+        errorMessage: 'Value cannot be negative or zero',
+        isValid: false
+      });
+
+      return false;
+    }
+
+    if(parsedValue > this.state.balance!) {
       this.setState({
         errorMessage: 'Not sufficient funds in pocket',
         isValid: false
